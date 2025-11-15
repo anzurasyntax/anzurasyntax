@@ -1,0 +1,1048 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Anzura Syntax — Premium Software Agency</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Playfair+Display:wght@600;700;900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    :root{
+      --brand-navy: #0D1323;
+      --brand-cyan:  #5D95AF;
+      --brand-purple:#8829C6;
+      --muted: #e6eef8;
+    }
+
+    * {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      overflow-x: hidden;
+    }
+
+    /* Enhanced luxury glows */
+    .lux-glow {
+      box-shadow: 0 8px 40px rgba(93,149,175,0.15), 0 2px 12px rgba(136,41,198,0.1);
+      transition: box-shadow 0.4s ease;
+    }
+
+    .lux-glow:hover {
+      box-shadow: 0 12px 50px rgba(93,149,175,0.25), 0 4px 16px rgba(136,41,198,0.15);
+    }
+
+    /* Animated gradient backgrounds */
+    @keyframes gradientShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    .animated-gradient {
+      background: linear-gradient(270deg, rgba(93,149,175,0.1), rgba(136,41,198,0.1), rgba(93,149,175,0.05));
+      background-size: 200% 200%;
+      animation: gradientShift 8s ease infinite;
+    }
+
+    /* Floating animation */
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+
+    .float-animation {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    /* Pulse glow animation */
+    @keyframes pulseGlow {
+      0%, 100% { 
+        box-shadow: 0 0 20px rgba(93,149,175,0.3), 0 0 40px rgba(136,41,198,0.2);
+      }
+      50% { 
+        box-shadow: 0 0 30px rgba(93,149,175,0.5), 0 0 60px rgba(136,41,198,0.3);
+      }
+    }
+
+    .pulse-glow {
+      animation: pulseGlow 3s ease-in-out infinite;
+    }
+
+    /* Shimmer effect */
+    @keyframes shimmer {
+      0% { background-position: -1000px 0; }
+      100% { background-position: 1000px 0; }
+    }
+
+    .shimmer {
+      background: linear-gradient(90deg, transparent, rgba(93,149,175,0.1), transparent);
+      background-size: 1000px 100%;
+      animation: shimmer 3s infinite;
+    }
+
+    /* Enhanced glass card */
+    .glass-card {
+      background: linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+      border: 1px solid rgba(255,255,255,0.06);
+      backdrop-filter: blur(12px) saturate(140%);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .glass-card:hover {
+      background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+      border-color: rgba(93,149,175,0.3);
+      transform: translateY(-8px);
+    }
+
+    /* Reveal animations with stagger */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.2,0.9,0.2,1), 
+                  transform 0.8s cubic-bezier(0.2,0.9,0.2,1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: all 0.8s cubic-bezier(0.2,0.9,0.2,1);
+    }
+
+    .reveal-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(40px);
+      transition: all 0.8s cubic-bezier(0.2,0.9,0.2,1);
+    }
+
+    .reveal-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* Enhanced button with ripple effect */
+    .btn-primary {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.3);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+    }
+
+    .btn-primary:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+
+    /* Icon rotation on hover */
+    .icon-rotate {
+      transition: transform 0.4s ease;
+    }
+
+    .icon-rotate:hover {
+      transform: rotate(15deg) scale(1.1);
+    }
+
+    /* Text gradient animation */
+    @keyframes textShine {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 200% 50%; }
+    }
+
+    .text-gradient-animate {
+      background: linear-gradient(90deg, var(--brand-cyan), var(--brand-purple), var(--brand-cyan));
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: textShine 3s linear infinite;
+    }
+
+    /* Parallax effect */
+    #heroParallax {
+      transform: translateY(0);
+      transition: transform 0.1s linear;
+      will-change: transform;
+    }
+
+    /* Card hover lift effect */
+    .card-lift {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .card-lift:hover {
+      transform: translateY(-12px) scale(1.02);
+    }
+
+    /* Border animation */
+    @keyframes borderFlow {
+      0% { border-color: rgba(93,149,175,0.3); }
+      50% { border-color: rgba(136,41,198,0.3); }
+      100% { border-color: rgba(93,149,175,0.3); }
+    }
+
+    .border-flow {
+      animation: borderFlow 3s ease-in-out infinite;
+    }
+
+    /* Glow text */
+    .glow-text {
+      text-shadow: 0 0 20px rgba(93,149,175,0.5), 0 0 40px rgba(93,149,175,0.3);
+    }
+
+    /* Smooth underline */
+    .nav-link {
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--brand-cyan), var(--brand-purple));
+      transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 640px){
+      .hero-title { font-size: 2rem; line-height: 1.1; }
+    }
+
+    /* Particle background effect */
+    @keyframes particleFloat {
+      0%, 100% { 
+        transform: translate(0, 0);
+        opacity: 0.3;
+      }
+      50% { 
+        transform: translate(100px, -100px);
+        opacity: 0.6;
+      }
+    }
+
+    .particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: rgba(93,149,175,0.4);
+      border-radius: 50%;
+      animation: particleFloat 15s infinite;
+    }
+
+    .particle:nth-child(2) { animation-delay: -5s; left: 20%; }
+    .particle:nth-child(3) { animation-delay: -10s; left: 40%; }
+    .particle:nth-child(4) { animation-delay: -7s; left: 60%; }
+    .particle:nth-child(5) { animation-delay: -3s; left: 80%; }
+  </style>
+</head>
+
+<body class="antialiased bg-[var(--brand-navy)] text-[var(--muted)]">
+
+  <!-- Header with enhanced backdrop blur -->
+  <header class="sticky top-0 z-50 bg-[rgba(13,19,35,0.7)] backdrop-blur-xl border-b border-[rgba(255,255,255,0.05)] transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3 group cursor-pointer">
+        <div class="relative">
+          <img src="logo2.png" alt="Anzura Syntax" class="h-10 w-10 object-contain icon-rotate" />
+          <div class="absolute inset-0 bg-gradient-to-r from-[var(--brand-cyan)] to-[var(--brand-purple)] opacity-0 group-hover:opacity-20 rounded-full blur-xl transition-opacity duration-500"></div>
+        </div>
+        <div>
+          <div class="text-white font-bold text-lg transition-all duration-300 group-hover:text-[var(--brand-cyan)]" style="font-family: 'Playfair Display', serif;">Anzura Syntax</div>
+          <div class="text-[0.72rem] text-white/50 -mt-1">Premium Software Agency</div>
+        </div>
+      </div>
+
+      <nav class="hidden md:flex items-center gap-8 text-sm">
+        <a href="#home" class="nav-link text-white/80 hover:text-white">Home</a>
+        <a href="#services" class="nav-link text-white/80 hover:text-white">Services</a>
+        <a href="#portfolio" class="nav-link text-white/80 hover:text-white">Portfolio</a>
+        <a href="#about" class="nav-link text-white/80 hover:text-white">About</a>
+        <a href="#contact" class="nav-link text-white/80 hover:text-white">Contact</a>
+      </nav>
+
+      <div class="md:hidden">
+        <button id="mobileBtn" aria-label="Open menu" class="p-2 rounded-md text-white/80 hover:bg-white/10 transition-all duration-300">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobileMenu" class="hidden md:hidden border-t border-[rgba(255,255,255,0.05)] bg-[rgba(13,19,35,0.9)] backdrop-blur-xl">
+      <div class="px-6 py-4 flex flex-col gap-3 text-sm">
+        <a href="#home" class="py-2 hover:text-[var(--brand-cyan)] transition-colors duration-300">Home</a>
+        <a href="#services" class="py-2 hover:text-[var(--brand-cyan)] transition-colors duration-300">Services</a>
+        <a href="#portfolio" class="py-2 hover:text-[var(--brand-cyan)] transition-colors duration-300">Portfolio</a>
+        <a href="#about" class="py-2 hover:text-[var(--brand-cyan)] transition-colors duration-300">About</a>
+        <a href="#contact" class="py-2 hover:text-[var(--brand-cyan)] transition-colors duration-300">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO with particles -->
+  <main id="home" class="relative overflow-hidden">
+    <!-- Animated particles -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <div class="particle" style="top: 20%; left: 10%;"></div>
+      <div class="particle" style="top: 40%; left: 30%;"></div>
+      <div class="particle" style="top: 60%; left: 50%;"></div>
+      <div class="particle" style="top: 30%; left: 70%;"></div>
+      <div class="particle" style="top: 70%; left: 85%;"></div>
+    </div>
+
+    <section class="min-h-[90vh] flex items-center relative">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
+
+        <!-- Text column -->
+        <div class="space-y-6 reveal-left" data-reveal>
+          <div class="inline-block px-4 py-2 rounded-full border border-[rgba(93,149,175,0.3)] bg-[rgba(93,149,175,0.05)] mb-4 animate-pulse">
+            <span class="text-sm text-[var(--brand-cyan)]">✨ Crafting Digital Excellence</span>
+          </div>
+
+          <h1 class="hero-title relative text-5xl md:text-6xl lg:text-7xl font-black text-white leading-tight" style="font-family:'Playfair Display', serif;">
+            We Build <span class="text-gradient-animate">Premium</span> Digital Experiences
+          </h1>
+
+          <p class="text-lg text-white/70 max-w-xl leading-relaxed">Professional Web Development • Ecommerce • Custom Software • UI/UX — Designed & engineered for premium brands.</p>
+
+          <div class="flex flex-wrap gap-4 mt-8">
+            <a href="#contact" class="btn-primary relative inline-flex items-center gap-3 px-8 py-4 rounded-full font-bold bg-white text-black shadow-[0_20px_50px_rgba(13,18,35,0.8)] hover:shadow-[0_25px_60px_rgba(93,149,175,0.4)] hover:scale-105 transition-all duration-300">
+              <span class="relative z-10">Start Your Project</span>
+              <svg class="w-5 h-5 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+            </a>
+
+            <a href="#portfolio" class="inline-flex items-center gap-3 px-8 py-4 rounded-full font-bold border-2 border-[rgba(93,149,175,0.3)] text-white/90 transition-all duration-300 hover:bg-[rgba(93,149,175,0.1)] hover:border-[var(--brand-cyan)] hover:shadow-[0_8px_30px_rgba(93,149,175,0.2)] hover:scale-105">
+              View Portfolio
+            </a>
+          </div>
+
+          <!-- Stats -->
+          <div class="flex gap-8 mt-8 pt-8 border-t border-[rgba(255,255,255,0.05)]">
+            <div class="text-center">
+              <div class="text-3xl font-bold text-white glow-text">10+</div>
+              <div class="text-sm text-white/60 mt-1">Years</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl font-bold text-white glow-text">200+</div>
+              <div class="text-sm text-white/60 mt-1">Projects</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl font-bold text-white glow-text">98%</div>
+              <div class="text-sm text-white/60 mt-1">Satisfaction</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Visual column -->
+        <div class="flex justify-center lg:justify-end reveal-right" data-reveal>
+          <div class="relative rounded-3xl p-[2px] glass-card lux-glow pulse-glow" style="max-width:540px; width:100%;">
+            <div class="rounded-3xl bg-gradient-to-br from-[rgba(93,149,175,0.05)] to-[rgba(136,41,198,0.05)] p-10 border border-[rgba(255,255,255,0.06)] backdrop-blur-md animated-gradient">
+              <div id="heroParallax" class="flex items-center justify-center float-animation" style="height:280px;">
+                <img src="logo2.png" alt="Anzura Syntax" class="w-48 h-auto object-contain drop-shadow-[0_0_40px_rgba(93,149,175,0.4)]" />
+              </div>
+
+              <p class="mt-6 text-white/80 text-center leading-relaxed">Elegant design with dependable engineering — built for brands who value distinction.</p>
+
+              <div class="mt-8 p-6 rounded-2xl bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.05)]">
+                <div class="flex items-center justify-around">
+                  <div class="text-center">
+                    <div class="text-2xl font-bold text-white">Fast</div>
+                    <div class="text-xs text-white/60 mt-1">Delivery</div>
+                  </div>
+                  <div class="h-12 w-px bg-[rgba(255,255,255,0.1)]"></div>
+                  <div class="text-center">
+                    <div class="text-2xl font-bold text-white">Secure</div>
+                    <div class="text-xs text-white/60 mt-1">Solutions</div>
+                  </div>
+                  <div class="h-12 w-px bg-[rgba(255,255,255,0.1)]"></div>
+                  <div class="text-center">
+                    <div class="text-2xl font-bold text-white">24/7</div>
+                    <div class="text-xs text-white/60 mt-1">Support</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Decorative gradient strip with animation -->
+    <div class="h-12 w-full relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-r from-[rgba(136,41,198,0.08)] via-[rgba(93,149,175,0.08)] to-[rgba(136,41,198,0.08)] shimmer"></div>
+    </div>
+
+    <!-- SERVICES -->
+    <section id="services" class="py-24 relative">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center mb-16 reveal" data-reveal>
+          <div class="inline-block px-4 py-2 rounded-full border border-[rgba(93,149,175,0.3)] bg-[rgba(93,149,175,0.05)] mb-4">
+            <span class="text-sm text-[var(--brand-cyan)]">What We Offer</span>
+          </div>
+          <h2 class="text-4xl md:text-5xl font-black text-white mb-4" style="font-family:'Playfair Display', serif;">Our Services</h2>
+          <p class="mt-2 text-white/70 max-w-2xl mx-auto text-lg">We combine aesthetic clarity with rigorous engineering to deliver products that scale.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Service Card 1 -->
+          <article class="reveal glass-card card-lift p-8 rounded-3xl group border-flow" data-reveal style="transition-delay: 0.1s">
+            <div class="mb-6">
+              <div class="w-16 h-16 rounded-2xl flex items-center justify-center bg-gradient-to-br from-[var(--brand-purple)] to-[var(--brand-cyan)] text-white shadow-[0_8px_30px_rgba(93,149,175,0.3)] group-hover:shadow-[0_12px_40px_rgba(93,149,175,0.5)] transition-all duration-400 icon-rotate">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+              </div>
+            </div>
+            <h3 class="font-bold text-xl text-white mb-3 group-hover:text-[var(--brand-cyan)] transition-colors duration-300">Web Development</h3>
+            <p class="text-sm text-white/70 leading-relaxed">Scalable web platforms with accessibility and performance baked in.</p>
+          </article>
+
+          <!-- Service Card 2 -->
+          <article class="reveal glass-card card-lift p-8 rounded-3xl group border-flow" data-reveal style="transition-delay: 0.2s">
+            <div class="mb-6">
+              <div class="w-16 h-16 rounded-2xl flex items-center justify-center bg-gradient-to-br from-[var(--brand-cyan)] to-[var(--brand-purple)] text-white shadow-[0_8px_30px_rgba(136,41,198,0.3)] group-hover:shadow-[0_12px_40px_rgba(136,41,198,0.5)] transition-all duration-400 icon-rotate">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+              </div>
+            </div>
+            <h3 class="font-bold text-xl text-white mb-3 group-hover:text-[var(--brand-cyan)] transition-colors duration-300">Ecommerce</h3>
+            <p class="text-sm text-white/70 leading-relaxed">Conversion-first stores with secure payments and analytics.</p>
+          </article>
+
+          <!-- Service Card 3 -->
+          <article class="reveal glass-card card-lift p-8 rounded-3xl group border-flow" data-reveal style="transition-delay: 0.3s">
+            <div class="mb-6">
+              <div class="w-16 h-16 rounded-2xl flex items-center justify-center bg-gradient-to-br from-[var(--brand-purple)] to-[var(--brand-cyan)] text-white shadow-[0_8px_30px_rgba(93,149,175,0.3)] group-hover:shadow-[0_12px_40px_rgba(93,149,175,0.5)] transition-all duration-400 icon-rotate">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/></svg>
+              </div>
+            </div>
+            <h3 class="font-bold text-xl text-white mb-3 group-hover:text-[var(--brand-cyan)] transition-colors duration-300">Custom Software</h3>
+            <p class="text-sm text-white/70 leading-relaxed">Bespoke systems and integrations tailored to your operations.</p>
+          </article>
+
+          <!-- Service Card 4 -->
+          <article class="reveal glass-card card-lift p-8 rounded-3xl group border-flow" data-reveal style="transition-delay: 0.4s">
+            <div class="mb-6">
+              <div class="w-16 h-16 rounded-2xl flex items-center justify-center bg-gradient-to-br from-[var(--brand-cyan)] to-[var(--brand-purple)] text-white shadow-[0_8px_30px_rgba(136,41,198,0.3)] group-hover:shadow-[0_12px_40px_rgba(136,41,198,0.5)] transition-all duration-400 icon-rotate">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg>
+              </div>
+            </div>
+            <h3 class="font-bold text-xl text-white mb-3 group-hover:text-[var(--brand-cyan)] transition-colors duration-300">UI / UX Design</h3>
+            <p class="text-sm text-white/70 leading-relaxed">Design systems and polished interfaces that elevate brands.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio" class="py-24 relative">
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[rgba(13,19,35,0.05)] to-transparent"></div>
+      
+      <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-16 reveal" data-reveal>
+          <div class="inline-block px-4 py-2 rounded-full border border-[rgba(93,149,175,0.3)] bg-[rgba(93,149,175,0.05)] mb-4">
+            <span class="text-sm text-[var(--brand-cyan)]">Our Work</span>
+          </div>
+          <h2 class="text-4xl md:text-5xl font-black text-white mb-4" style="font-family:'Playfair Display', serif;">Selected Work</h2>
+          <p class="mt-2 text-white/70 text-lg">A curated selection of premium projects.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Portfolio item 1 -->
+          <div class="relative group overflow-hidden rounded-3xl border-2 border-[rgba(255,255,255,0.06)] card-lift reveal" data-reveal style="transition-delay: 0.1s">
+            <img src="https://picsum.photos/800/600?random=1" alt="project" class="w-full h-72 object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-2" />
+            <div class="absolute inset-0 bg-gradient-to-t from-[rgba(13,19,35,0.95)] via-[rgba(13,19,35,0.5)] to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+            <div class="absolute inset-0 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
+              <span class="inline-block px-3 py-1 rounded-full border border-[var(--brand-cyan)] text-xs mb-3 w-fit bg-[rgba(93,149,175,0.1)] backdrop-blur-sm">Ecommerce</span>
+              <h3 class="text-white font-bold text-xl mb-2">Luxury Storefront</h3>
+              <p class="text-white/70 text-sm">Premium ecommerce experience with seamless checkout</p>
+            </div>
+          </div>
+
+          <!-- Portfolio item 2 -->
+          <div class="relative group overflow-hidden rounded-3xl border-2 border-[rgba(255,255,255,0.06)] card-lift reveal" data-reveal style="transition-delay: 0.2s">
+            <img src="https://picsum.photos/800/600?random=2" alt="project" class="w-full h-72 object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-2" />
+            <div class="absolute inset-0 bg-gradient-to-t from-[rgba(13,19,35,0.95)] via-[rgba(13,19,35,0.5)] to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+            <div class="absolute inset-0 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
+              <span class="inline-block px-3 py-1 rounded-full border border-[var(--brand-cyan)] text-xs mb-3 w-fit bg-[rgba(93,149,175,0.1)] backdrop-blur-sm">Platform</span>
+              <h3 class="text-white font-bold text-xl mb-2">B2B Portal</h3>
+              <p class="text-white/70 text-sm">Enterprise-grade platform for business operations</p>
+            </div>
+          </div>
+
+          <!-- Portfolio item 3 -->
+          <div class="relative group overflow-hidden rounded-3xl border-2 border-[rgba(255,255,255,0.06)] card-lift reveal" data-reveal style="transition-delay: 0.3s">
+            <img src="https://picsum.photos/800/600?random=3" alt="project" class="w-full h-72 object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-2" />
+            <div class="absolute inset-0 bg-gradient-to-t from-[rgba(13,19,35,0.95)] via-[rgba(13,19,35,0.5)] to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+            <div class="absolute inset-0 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
+              <span class="inline-block px-3 py-1 rounded-full border border-[var(--brand-cyan)] text-xs mb-3 w-fit bg-[rgba(93,149,175,0.1)] backdrop-blur-sm">App</span>
+              <h3 class="text-white font-bold text-xl mb-2">SaaS Dashboard</h3>
+              <p class="text-white/70 text-sm">Intuitive analytics dashboard with real-time data</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="py-24 relative">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8 grid lg:grid-cols-2 gap-16 items-center">
+        <div class="reveal-left" data-reveal>
+          <div class="inline-block px-4 py-2 rounded-full border border-[rgba(93,149,175,0.3)] bg-[rgba(93,149,175,0.05)] mb-6">
+            <span class="text-sm text-[var(--brand-cyan)]">Who We Are</span>
+          </div>
+          <h2 class="text-4xl md:text-5xl font-black text-white mb-6" style="font-family:'Playfair Display', serif;">About Anzura Syntax</h2>
+          <p class="text-lg text-white/80 leading-relaxed mb-6">Anzura Syntax is a boutique software agency crafting refined digital experiences for premium brands. We blend elegant design with rigorous engineering to create products that perform, scale, and stand out.</p>
+          
+          <div class="space-y-4 mb-8">
+            <div class="flex items-start gap-4 p-4 rounded-xl bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.05)] transition-all duration-300 hover:bg-[rgba(93,149,175,0.05)] hover:border-[rgba(93,149,175,0.2)]">
+              <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-[var(--brand-cyan)] to-[var(--brand-purple)] flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              </div>
+              <div>
+                <h4 class="text-white font-semibold mb-1">Strategic product discovery</h4>
+                <p class="text-sm text-white/60">Understanding your vision and translating it into actionable roadmaps</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 p-4 rounded-xl bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.05)] transition-all duration-300 hover:bg-[rgba(93,149,175,0.05)] hover:border-[rgba(93,149,175,0.2)]">
+              <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-[var(--brand-cyan)] to-[var(--brand-purple)] flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              </div>
+              <div>
+                <h4 class="text-white font-semibold mb-1">Scalable engineering & integrations</h4>
+                <p class="text-sm text-white/60">Building robust systems that grow with your business</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 p-4 rounded-xl bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.05)] transition-all duration-300 hover:bg-[rgba(93,149,175,0.05)] hover:border-[rgba(93,149,175,0.2)]">
+              <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-[var(--brand-cyan)] to-[var(--brand-purple)] flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              </div>
+              <div>
+                <h4 class="text-white font-semibold mb-1">Ongoing support & optimization</h4>
+                <p class="text-sm text-white/60">Continuous improvements and dedicated assistance</p>
+              </div>
+            </div>
+          </div>
+
+          <a href="#contact" class="inline-flex items-center gap-3 px-8 py-4 rounded-full font-bold bg-gradient-to-r from-[var(--brand-cyan)] to-[var(--brand-purple)] text-white shadow-[0_8px_30px_rgba(93,149,175,0.3)] hover:shadow-[0_12px_40px_rgba(93,149,175,0.5)] hover:scale-105 transition-all duration-300">
+            Let's Work Together
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+          </a>
+        </div>
+
+        <div class="flex justify-center reveal-right" data-reveal>
+          <div class="relative">
+            <div class="absolute inset-0 bg-gradient-to-r from-[var(--brand-cyan)] to-[var(--brand-purple)] rounded-3xl blur-2xl opacity-20 animate-pulse"></div>
+            <div class="relative w-full max-w-md h-96 rounded-3xl overflow-hidden border-4 border-[var(--brand-cyan)] shadow-[0_20px_60px_rgba(93,149,175,0.3)] card-lift">
+              <img src="https://picsum.photos/640/480?random=4" alt="team" class="w-full h-full object-cover" />
+              <div class="absolute inset-0 bg-gradient-to-t from-[rgba(13,19,35,0.6)] to-transparent"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-24 relative">
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[rgba(93,149,175,0.02)] to-transparent"></div>
+      
+      <div class="max-w-3xl mx-auto px-6 relative z-10">
+        <div class="text-center reveal mb-12" data-reveal>
+          <div class="inline-block px-4 py-2 rounded-full border border-[rgba(93,149,175,0.3)] bg-[rgba(93,149,175,0.05)] mb-6">
+            <span class="text-sm text-[var(--brand-cyan)]">Let's Connect</span>
+          </div>
+          <h2 class="text-4xl md:text-5xl font-black text-white mb-4" style="font-family:'Playfair Display', serif;">Get in Touch</h2>
+          <p class="mt-2 text-white/70 text-lg">Tell us about your project and we'll get back within 48 hours.</p>
+        </div>
+
+        <form id="contactForm" class="glass-card lux-glow p-8 md:p-10 rounded-3xl reveal" data-reveal>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+            <div class="relative">
+              <label for="name" class="block text-sm font-semibold text-white/80 mb-2">Name</label>
+              <input id="name" name="name" type="text" placeholder="John Doe" required
+                class="w-full px-5 py-4 rounded-xl bg-[rgba(255,255,255,0.03)] border-2 border-[rgba(255,255,255,0.05)] placeholder:text-white/40 focus:ring-2 focus:ring-[var(--brand-cyan)] focus:outline-none focus:border-[var(--brand-cyan)] transition-all duration-300 text-white" />
+            </div>
+
+            <div class="relative">
+              <label for="email" class="block text-sm font-semibold text-white/80 mb-2">Email</label>
+              <input id="email" name="email" type="email" placeholder="john@example.com" required
+                class="w-full px-5 py-4 rounded-xl bg-[rgba(255,255,255,0.03)] border-2 border-[rgba(255,255,255,0.05)] placeholder:text-white/40 focus:ring-2 focus:ring-[var(--brand-cyan)] focus:outline-none focus:border-[var(--brand-cyan)] transition-all duration-300 text-white" />
+            </div>
+          </div>
+
+          <div class="relative mb-6">
+            <label for="message" class="block text-sm font-semibold text-white/80 mb-2">Project Details</label>
+            <textarea id="message" name="message" rows="6" placeholder="Tell us about your project..." required
+              class="w-full px-5 py-4 rounded-xl bg-[rgba(255,255,255,0.03)] border-2 border-[rgba(255,255,255,0.05)] placeholder:text-white/40 focus:ring-2 focus:ring-[var(--brand-cyan)] focus:outline-none focus:border-[var(--brand-cyan)] transition-all duration-300 text-white resize-none"></textarea>
+          </div>
+
+          <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <button type="submit" class="btn-primary w-full sm:w-auto inline-flex items-center justify-center gap-3 px-10 py-4 rounded-full font-bold bg-gradient-to-r from-[var(--brand-cyan)] to-[var(--brand-purple)] text-white shadow-[0_8px_30px_rgba(93,149,175,0.3)] hover:shadow-[0_12px_40px_rgba(93,149,175,0.5)] hover:scale-105 transition-all duration-300">
+              <span class="relative z-10">Submit Message</span>
+              <svg class="w-5 h-5 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+            </button>
+
+            <div id="formMessage" class="text-sm text-white/60 text-center sm:text-left"></div>
+          </div>
+        </form>
+
+        <!-- Contact Info -->
+        <div class="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6 reveal" data-reveal>
+          <div class="text-center p-6 rounded-2xl glass-card hover:border-[rgba(93,149,175,0.3)] transition-all duration-300">
+            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-[var(--brand-cyan)] to-[var(--brand-purple)] flex items-center justify-center mx-auto mb-3">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            </div>
+            <h4 class="text-white font-semibold mb-1">Email</h4>
+            <p class="text-sm text-white/60">info@anzura.com</p>
+          </div>
+
+          <div class="text-center p-6 rounded-2xl glass-card hover:border-[rgba(93,149,175,0.3)] transition-all duration-300">
+            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-[var(--brand-cyan)] to-[var(--brand-purple)] flex items-center justify-center mx-auto mb-3">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            </div>
+            <h4 class="text-white font-semibold mb-1">Phone</h4>
+            <p class="text-sm text-white/60">+92 370 127 9931</p>
+          </div>
+
+          <div class="text-center p-6 rounded-2xl glass-card hover:border-[rgba(93,149,175,0.3)] transition-all duration-300">
+            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-[var(--brand-cyan)] to-[var(--brand-purple)] flex items-center justify-center mx-auto mb-3">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            </div>
+            <h4 class="text-white font-semibold mb-1">Location</h4>
+            <p class="text-sm text-white/60">Multan, Pakistan</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="mt-20 bg-[rgba(13,19,35,0.8)] border-t border-[rgba(255,255,255,0.05)] backdrop-blur-xl">
+    <div class="max-w-7xl mx-auto px-6 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <!-- Brand -->
+        <div class="md:col-span-2">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[var(--brand-purple)] to-[var(--brand-cyan)] flex items-center justify-center shadow-[0_8px_30px_rgba(93,149,175,0.3)]">
+              <img src="logo2.png" class="w-7 h-7 object-contain" alt="AS" />
+            </div>
+            <div>
+              <div class="text-lg font-bold text-white" style="font-family:'Playfair Display', serif;">Anzura Syntax</div>
+              <div class="text-xs text-white/50">Premium Software Agency</div>
+            </div>
+          </div>
+          <p class="text-sm text-white/60 max-w-sm leading-relaxed">Crafting refined digital experiences for premium brands with elegant design and rigorous engineering.</p>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+          <div class="space-y-2">
+            <a href="#home" class="block text-sm text-white/60 hover:text-[var(--brand-cyan)] transition-colors duration-300">Home</a>
+            <a href="#services" class="block text-sm text-white/60 hover:text-[var(--brand-cyan)] transition-colors duration-300">Services</a>
+            <a href="#portfolio" class="block text-sm text-white/60 hover:text-[var(--brand-cyan)] transition-colors duration-300">Portfolio</a>
+            <a href="#about" class="block text-sm text-white/60 hover:text-[var(--brand-cyan)] transition-colors duration-300">About</a>
+          </div>
+        </div>
+
+        <!-- Connect -->
+        <div>
+          <h4 class="text-white font-semibold mb-4">Connect</h4>
+          <div class="space-y-2">
+            <a href="#contact" class="block text-sm text-white/60 hover:text-[var(--brand-cyan)] transition-colors duration-300">Contact</a>
+            <a href="https://wa.me/923701279931" target="_blank" rel="noopener noreferrer" class="block text-sm text-white/60 hover:text-[var(--brand-cyan)] transition-colors duration-300">WhatsApp</a>
+            <a href="#" class="block text-sm text-white/60 hover:text-[var(--brand-cyan)] transition-colors duration-300">Privacy</a>
+            <a href="#" class="block text-sm text-white/60 hover:text-[var(--brand-cyan)] transition-colors duration-300">Terms</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t border-[rgba(255,255,255,0.05)] pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="text-sm text-white/40">© <span id="year"></span> Anzura Syntax — All rights reserved.</div>
+        <div class="flex items-center gap-4">
+          <a href="#" class="w-10 h-10 rounded-full border border-[rgba(255,255,255,0.1)] flex items-center justify-center text-white/60 hover:text-white hover:border-[var(--brand-cyan)] hover:bg-[rgba(93,149,175,0.1)] transition-all duration-300">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="#" class="w-10 h-10 rounded-full border border-[rgba(255,255,255,0.1)] flex items-center justify-center text-white/60 hover:text-white hover:border-[var(--brand-cyan)] hover:bg-[rgba(93,149,175,0.1)] transition-all duration-300">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+          </a>
+          <a href="#" class="w-10 h-10 rounded-full border border-[rgba(255,255,255,0.1)] flex items-center justify-center text-white/60 hover:text-white hover:border-[var(--brand-cyan)] hover:bg-[rgba(93,149,175,0.1)] transition-all duration-300">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Mobile toggle
+    const mobileBtn = document.getElementById('mobileBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (mobileBtn) {
+      mobileBtn.addEventListener('click', ()=> {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+
+    // Close mobile menu when clicking on a link
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // Enhanced reveal on scroll with stagger
+    const revealObserver = new IntersectionObserver((entries)=>{
+      entries.forEach((entry, index)=>{
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, index * 100);
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {threshold: 0.1, rootMargin: '0px 0px -50px 0px'});
+
+    document.querySelectorAll('[data-reveal]').forEach(el=>{
+      revealObserver.observe(el);
+    });
+
+    // Hero parallax effect
+    const heroParallax = document.getElementById('heroParallax');
+    window.addEventListener('scroll', ()=> {
+      if (!heroParallax) return;
+      const scrolled = window.scrollY;
+      const move = Math.min(Math.max(scrolled * -0.08, -25), 25);
+      heroParallax.style.transform = `translateY(${move}px)`;
+    }, {passive: true});
+
+    // Header background on scroll
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.style.background = 'rgba(13,19,35,0.9)';
+      } else {
+        header.style.background = 'rgba(13,19,35,0.7)';
+      }
+    }, {passive: true});
+
+    // Contact form handling
+    const form = document.getElementById('contactForm');
+    const formMessage = document.getElementById('formMessage');
+    if (form) {
+      form.addEventListener('submit', (e)=>{
+        e.preventDefault();
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
+
+        if (!name || !email || !message) {
+          formMessage.textContent = 'Please complete all fields.';
+          formMessage.style.color = '#FF6B6B';
+          return;
+        }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          formMessage.textContent = 'Please provide a valid email address.';
+          formMessage.style.color = '#FF6B6B';
+          return;
+        }
+
+        // Simulate successful submission
+        formMessage.textContent = '✓ Message sent successfully! We\'ll be in touch soon.';
+        formMessage.style.color = '#5D95AF';
+        form.reset();
+        
+        setTimeout(()=> {
+          formMessage.textContent = '';
+        }, 5000);
+      });
+    }
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Particle animation on mousemove
+    let mouseX = 0;
+    let mouseY = 0;
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    const particles = document.querySelectorAll('.particle');
+    function animateParticles() {
+      particles.forEach((particle, index) => {
+        const speed = (index + 1) * 0.0005;
+        const x = Math.sin(Date.now() * speed) * 50;
+        const y = Math.cos(Date.now() * speed) * 50;
+        particle.style.transform = `translate(${x}px, ${y}px)`;
+      });
+      requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
+
+    // Set current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Add hover effect to service cards
+    const serviceCards = document.querySelectorAll('#services article');
+    serviceCards.forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-12px) scale(1.02)';
+      });
+      card.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0) scale(1)';
+      });
+    });
+
+    // Portfolio image tilt effect
+    const portfolioItems = document.querySelectorAll('#portfolio .group');
+    portfolioItems.forEach(item => {
+      item.addEventListener('mousemove', function(e) {
+        const rect = this.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = (y - centerY) / 20;
+        const rotateY = (centerX - x) / 20;
+        
+        const img = this.querySelector('img');
+        img.style.transform = `scale(1.1) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      });
+      
+      item.addEventListener('mouseleave', function() {
+        const img = this.querySelector('img');
+        img.style.transform = 'scale(1) rotateX(0) rotateY(0)';
+      });
+    });
+
+    // Add ripple effect to buttons
+    const buttons = document.querySelectorAll('.btn-primary');
+    buttons.forEach(button => {
+      button.addEventListener('click', function(e) {
+        const ripple = document.createElement('span');
+        const rect = this.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        const x = e.clientX - rect.left - size / 2;
+        const y = e.clientY - rect.top - size / 2;
+        
+        ripple.style.width = ripple.style.height = size + 'px';
+        ripple.style.left = x + 'px';
+        ripple.style.top = y + 'px';
+        ripple.classList.add('ripple');
+        
+        this.appendChild(ripple);
+        
+        setTimeout(() => {
+          ripple.remove();
+        }, 600);
+      });
+    });
+
+    // Intersection Observer for counting animation
+    const stats = document.querySelectorAll('.glow-text');
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const target = entry.target;
+          const text = target.textContent;
+          const number = parseInt(text);
+          
+          if (!isNaN(number)) {
+            let current = 0;
+            const increment = number / 50;
+            const timer = setInterval(() => {
+              current += increment;
+              if (current >= number) {
+                target.textContent = text;
+                clearInterval(timer);
+              } else {
+                target.textContent = Math.floor(current) + text.replace(/[0-9]/g, '');
+              }
+            }, 30);
+          }
+          statsObserver.unobserve(target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    stats.forEach(stat => statsObserver.observe(stat));
+
+    // Add loading animation
+    window.addEventListener('load', () => {
+      document.body.style.opacity = '0';
+      setTimeout(() => {
+        document.body.style.transition = 'opacity 0.5s ease';
+        document.body.style.opacity = '1';
+      }, 100);
+    });
+
+    // Navbar active link
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (scrollY >= sectionTop - 200) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('text-[var(--brand-cyan)]');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('text-[var(--brand-cyan)]');
+        }
+      });
+    });
+
+    // Add scroll-to-top button
+    const scrollBtn = document.createElement('button');
+    scrollBtn.innerHTML = '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg>';
+    scrollBtn.className = 'fixed bottom-8 right-8 w-14 h-14 rounded-full bg-gradient-to-r from-[var(--brand-cyan)] to-[var(--brand-purple)] text-white shadow-[0_8px_30px_rgba(93,149,175,0.4)] flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 hover:scale-110 z-50';
+    scrollBtn.setAttribute('aria-label', 'Scroll to top');
+    document.body.appendChild(scrollBtn);
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 500) {
+        scrollBtn.style.opacity = '1';
+        scrollBtn.style.pointerEvents = 'all';
+      } else {
+        scrollBtn.style.opacity = '0';
+        scrollBtn.style.pointerEvents = 'none';
+      }
+    });
+
+    scrollBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    // Form input animations
+    const formInputs = document.querySelectorAll('input, textarea');
+    formInputs.forEach(input => {
+      input.addEventListener('focus', function() {
+        this.parentElement.classList.add('focused');
+        this.style.transform = 'scale(1.02)';
+      });
+      
+      input.addEventListener('blur', function() {
+        this.parentElement.classList.remove('focused');
+        this.style.transform = 'scale(1)';
+      });
+    });
+
+    // Cursor trail effect (optional, subtle)
+    const coords = { x: 0, y: 0 };
+    const circles = document.querySelectorAll('.cursor-circle');
+    
+    if (window.innerWidth > 768) {
+      for (let i = 0; i < 3; i++) {
+        const circle = document.createElement('div');
+        circle.className = 'cursor-circle';
+        circle.style.cssText = `
+          position: fixed;
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          background: radial-gradient(circle, rgba(93,149,175,0.3), transparent);
+          pointer-events: none;
+          z-index: 9999;
+          transition: transform 0.2s ease;
+        `;
+        document.body.appendChild(circle);
+      }
+
+      const circles = document.querySelectorAll('.cursor-circle');
+      
+      document.addEventListener('mousemove', (e) => {
+        coords.x = e.clientX;
+        coords.y = e.clientY;
+      });
+
+      circles.forEach((circle, index) => {
+        circle.x = 0;
+        circle.y = 0;
+      });
+
+      function animateCursor() {
+        let x = coords.x;
+        let y = coords.y;
+        
+        circles.forEach((circle, index) => {
+          circle.style.left = x - 10 + 'px';
+          circle.style.top = y - 10 + 'px';
+          circle.style.transform = `scale(${(circles.length - index) / circles.length})`;
+          
+          const nextCircle = circles[index + 1] || circles[0];
+          x += (nextCircle.x - x) * 0.3;
+          y += (nextCircle.y - y) * 0.3;
+          
+          circle.x = x;
+          circle.y = y;
+        });
+        
+        requestAnimationFrame(animateCursor);
+      }
+      
+      animateCursor();
+    }
+
+    console.log('%c🚀 Anzura Syntax - Premium Software Agency', 'color: #5D95AF; font-size: 16px; font-weight: bold;');
+    console.log('%cWebsite crafted with passion and precision', 'color: #8829C6; font-size: 12px;');
+  </script>
+</body>
+</html>
